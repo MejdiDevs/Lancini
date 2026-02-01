@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **⚠️ SECURITY NOTICE:** This repository intentionally includes `.env` files and API credentials. We recognize the security risks associated with publishing sensitive data. However, for the context of this hackathon, we have included these (using only **free-tier** services) to ensure judges and collaborators can run the application instantly without manual environment setup. 
+> 
+> **DO NOT** use this practice in production environments.
+
 # 🚀 Lancini - Maghreb Talent Connect
 
 Lancini is a high-end recruitment and career management platform designed to bridge the gap between talented students and leading enterprises. The platform features a sophisticated Job Approval Workflow, personalized dashboards for different roles, and a premium visual experience.

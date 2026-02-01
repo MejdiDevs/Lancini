@@ -2,9 +2,9 @@
 # Dependencies
 node_modules/
 
-# Environment Variables
-.env
-.env.*
+# Environment Variables (INTENTIONALLY TRACKED FOR HACKATHON)
+# .env
+# .env.*
 
 # Agent Configuration
 .agent/
@@ -22,3 +22,7 @@ coverage/
 # System Files
 .DS_Store
 *.log
+
+# Backend Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
