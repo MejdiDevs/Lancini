@@ -1,0 +1,24 @@
+
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+.env.*
+
+# Agent Configuration
+.agent/
+
+# References
+Ref/
+
+# Build Outputs & Checksums
+.next/
+dist/
+build/
+out/
+coverage/
+
+# System Files
+.DS_Store
+*.log
