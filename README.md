@@ -1,7 +1,7 @@
 > [!IMPORTANT]
 > **Security Notice:** This repository includes `.env` files and API credentials for hackathon evaluation purposes. These are free-tier services intended to provide an instant setup for judges. Do not use this practice in production environments.
 
-# Lancini - Maghreb Talent Connect
+# Lancini - ENET'Com Talent Connect
 
 Lancini is a recruitment and career management platform connecting students with enterprises. It features an administrative job approval workflow, role-based dashboards, and a modern interface.
 
