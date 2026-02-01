@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+/* 
+  ENETCOM FORUM Brand Colors (Official Graphic Chart)
+  Primary Orange: #EC6D0A
+  Primary Blue: #133D6F
+  Secondary Orange: #FF860A
+  Accent Yellow: #FFF60A
+*/
+
+:root {
+  /* Brand Colors */
+  --brand-orange: #EC6D0A;
+  --brand-blue: #133D6F;
+  --brand-orange-light: #FF860A;
+  --brand-yellow: #FFF60A;
+
+  /* Background & Foreground */
+  --background: #ffffff;
+  --foreground: #133D6F;
+
+  /* Primary (Orange) */
+  --primary: #EC6D0A;
+  --primary-foreground: #ffffff;
+
+  /* Secondary (Blue) */
+  --secondary: #133D6F;
+  --secondary-foreground: #ffffff;
+
+  /* Muted */
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  /* Accent (Orange Light) */
+  --accent: #FF860A;
+  --accent-foreground: #ffffff;
+
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Borders & Inputs */
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #EC6D0A;
+
+  /* Border Radius */
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+
+  --primary: #FF860A;
+  --primary-foreground: #0f172a;
+
+  --secondary: #133D6F;
+  --secondary-foreground: #f8fafc;
+
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+
+  --accent: #EC6D0A;
+  --accent-foreground: #f8fafc;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #f8fafc;
+
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #FF860A;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+  }
+}
+
+.container-custom {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* ENETCOM Brand Utilities */
+.text-brand-orange {
+  color: #EC6D0A;
+}
+
+.text-brand-blue {
+  color: #133D6F;
+}
+
+.bg-brand-orange {
+  background-color: #EC6D0A;
+}
+
+.bg-brand-blue {
+  background-color: #133D6F;
+}
+
+.border-brand-orange {
+  border-color: #EC6D0A;
+}
+
+.border-brand-blue {
+  border-color: #133D6F;
+}

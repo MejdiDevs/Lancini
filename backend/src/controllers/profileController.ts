@@ -207,10 +207,62 @@ export const getProjectsByUserId = async (req: Request, res: Response) => {
 
 export const getAllStudents = async (req: Request, res: Response) => {
     try {
-        const students = await StudentProfile.find().sort({ createdAt: -1 });
+        const students = await StudentProfile.find()
+            .populate('userId', 'email role status')
+            .sort({ createdAt: -1 });
         res.json(students);
     } catch (error) {
         console.error('Error fetching all students:', error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
+// Increment project views
+export const incrementProjectView = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const project = await Project.findByIdAndUpdate(id, { $inc: { views: 1 } }, { new: true });
+
+        if (!project) {
+            return res.status(404).json({ message: 'Project not found' });
+        }
+
+        res.json(project);
+    } catch (error) {
+        console.error('Error incrementing views:', error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
+// Toggle project like
+export const toggleProjectLike = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const userId = req.user._id;
+
+        const project = await Project.findById(id);
+        if (!project) {
+            return res.status(404).json({ message: 'Project not found' });
+        }
+
+        const isLiked = project.likedBy.some(id => id.toString() === userId.toString());
+
+        if (isLiked) {
+            await Project.findByIdAndUpdate(id, {
+                $pull: { likedBy: userId },
+                $inc: { likes: -1 }
+            });
+        } else {
+            await Project.findByIdAndUpdate(id, {
+                $addToSet: { likedBy: userId },
+                $inc: { likes: 1 }
+            });
+        }
+
+        const updatedProject = await Project.findById(id);
+        res.json(updatedProject);
+    } catch (error) {
+        console.error('Error toggling like:', error);
         res.status(500).json({ message: 'Server Error' });
     }
 };

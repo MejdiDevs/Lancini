@@ -8,7 +8,7 @@ export interface IJob extends Document {
     type: 'internship' | 'pfe';
     location: string;
     remote: boolean;
-    status: 'open' | 'closed' | 'filled';
+    status: 'open' | 'closed' | 'filled' | 'pending' | 'rejected';
     chosenStudentId?: mongoose.Types.ObjectId;
 }
 
@@ -20,7 +20,7 @@ const jobSchema = new Schema<IJob>({
     type: { type: String, enum: ['internship', 'pfe'], default: 'internship' },
     location: { type: String },
     remote: { type: Boolean, default: false },
-    status: { type: String, enum: ['open', 'closed', 'filled'], default: 'open' },
+    status: { type: String, enum: ['open', 'closed', 'filled', 'pending', 'rejected'], default: 'pending' },
     chosenStudentId: { type: Schema.Types.ObjectId, ref: 'User' },
 }, { timestamps: true });
 

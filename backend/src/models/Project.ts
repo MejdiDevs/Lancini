@@ -8,6 +8,7 @@ export interface IProject extends Document {
     tags: string[];
     link?: string;
     likes: number;
+    likedBy: mongoose.Types.ObjectId[];
     views: number;
     createdAt: Date;
 }
@@ -20,6 +21,7 @@ const ProjectSchema = new Schema({
     tags: [{ type: String }],
     link: { type: String },
     likes: { type: Number, default: 0 },
+    likedBy: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     views: { type: Number, default: 0 },
     createdAt: { type: Date, default: Date.now }
 });

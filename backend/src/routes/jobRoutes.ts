@@ -1,5 +1,5 @@
 import express from 'express';
-import { protect } from '../middleware/authMiddleware';
+import { protect, authorize } from '../middleware/authMiddleware';
 import {
     getAllJobs,
     getJobById,
@@ -13,10 +13,16 @@ import {
     deleteJob,
     getJobsByEnterprise,
     getJobApplications,
-    updateApplicationStatus
+    updateApplicationStatus,
+    getAdminJobs,
+    updateJobStatusAdmin
 } from '../controllers/jobController';
 
 const router = express.Router();
+
+// Admin Routes
+router.get('/admin/all', protect, authorize('ADMIN'), getAdminJobs);
+router.patch('/admin/:id/status', protect, authorize('ADMIN'), updateJobStatusAdmin);
 
 router.get('/', getAllJobs);
 router.get('/enterprise/:enterpriseId', getJobsByEnterprise);
