@@ -11,7 +11,7 @@ Lancini is a recruitment and career management platform connecting students with
 - **Tone:** Professional and accessible.
 
 ## Preview
-![Lancini Dashboard](https://i.ibb.co/wFbrWV7r/Lancini-ENET-Com-Forum.png)
+![Lancini Dashboard](https://i.ibb.co/5WHGH5yN/Lancini-ENET-Com-Forum.png)
 
 ## Setup Guide
 
